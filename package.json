@@ -1,0 +1,47 @@
+{
+  "name": "@the-software-compagny/nestjs_module_ldap",
+  "version": "0.0.1",
+  "description": "LDAP module for NestJS Framework",
+  "repository": "https://github.com/The-Software-Compagny/nestjs_module_ldap.git",
+  "author": "tacxou <12997062+tacxou@users.noreply.github.com> (https://github.com/tacxou)",
+  "contributors": [
+    {
+      "name": " tacxou",
+      "email": "12997062+tacxou@users.noreply.github.com",
+      "url": "https://github.com/tacxou"
+    },
+    {
+      "name": "Contributors",
+      "url": "https://github.com/The-Software-Compagny/nestjs_module_ldap/graphs/contributors"
+    }
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "postbuild": "cpr README.md dist/README.md && cpr LICENSE dist/LICENSE && cpr package.json dist/package.json"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.3.9",
+    "@nestjs/core": "^10.3.9",
+    "@types/node": "^22.5.5",
+    "cpr": "^3.0.1",
+    "eslint": "^8.56.0",
+    "ldapts": "^7.3.1",
+    "prettier": "^3.3.2",
+    "reflect-metadata": "^0.2.2",
+    "rimraf": "^5.0.7",
+    "rxjs": "^7.8.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@nestjs/core": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "ldapts": "^7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
