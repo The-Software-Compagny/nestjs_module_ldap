@@ -28,7 +28,7 @@ LdapModule.forRootAsync({
   imports: [ConfigModule],
   inject: [ConfigService],
   useFactory: async (config: ConfigService) => ({
-    config: config.get<LdapOptions>('ldap.options'),
+    config: config.get<ClientOptions>('ldap.options'),
   }),
 })
 ```
