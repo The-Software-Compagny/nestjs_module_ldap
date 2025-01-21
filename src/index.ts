@@ -1,4 +1,6 @@
-export * from './ldap.module'
+export * from './ldap.constants'
 export * from './ldap.decorators'
 export * from './ldap.interfaces'
+export * from './ldap.manager'
+export * from './ldap.module'
 export * from './ldap.utils'
