@@ -5,6 +5,13 @@ import { createLdapConnection, getLdapConnectionToken, getLdapOptionsToken } fro
 @Global()
 @Module({})
 export class LdapCoreModule {
+  /**
+   * Register the LdapModule with the provided options
+   *
+   * @param options LdapModuleOptions
+   * @param connection string
+   * @returns DynamicModule
+   */
   public static forRoot(options: LdapModuleOptions, connection?: string): DynamicModule {
     const ldapOptionsProvider: Provider = {
       provide: getLdapOptionsToken(connection),
@@ -23,6 +30,13 @@ export class LdapCoreModule {
     }
   }
 
+  /**
+   * Register the LdapModule with the provided async options
+   *
+   * @param options LdapModuleAsyncOptions
+   * @param connection string
+   * @returns DynamicModule
+   */
   public static forRootAsync(options: LdapModuleAsyncOptions, connection: string): DynamicModule {
     const ldapConnectionProvider: Provider = {
       provide: getLdapConnectionToken(connection),
@@ -40,6 +54,13 @@ export class LdapCoreModule {
     }
   }
 
+  /**
+   * Create the async providers
+   *
+   * @param options LdapModuleAsyncOptions
+   * @param connection string
+   * @returns Provider[]
+   */
   public static createAsyncProviders(options: LdapModuleAsyncOptions, connection?: string): Provider[] {
     if (!(options.useExisting || options.useFactory || options.useClass)) {
       throw new Error('Invalid configuration. Must provide useFactory, useClass or useExisting')
@@ -52,6 +73,13 @@ export class LdapCoreModule {
     return [this.createAsyncOptionsProvider(options, connection), { provide: options.useClass, useClass: options.useClass }]
   }
 
+  /**
+   * Create the async options provider
+   *
+   * @param options LdapModuleAsyncOptions
+   * @param connection string
+   * @returns Provider
+   */
   public static createAsyncOptionsProvider(options: LdapModuleAsyncOptions, connection?: string): Provider {
     if (!(options.useExisting || options.useFactory || options.useClass)) {
       throw new Error('Invalid configuration. Must provide useFactory, useClass or useExisting')
